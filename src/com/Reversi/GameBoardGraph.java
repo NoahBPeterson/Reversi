@@ -199,7 +199,7 @@ public class GameBoardGraph {
 		}
 		if(!moveChecker(algebraNotation, type))
 		{
-			
+			return false;
 		}
 		return true;
 	}
@@ -211,27 +211,157 @@ public class GameBoardGraph {
 		PieceVertex starting = GameBoard.get(algebraNotation);
 		PieceVertex cursor = GameBoard.get(algebraNotation);
 		//Left
-		for(int i = 0; i < 8; i++)
+		for(int i = 0; i < 8;)
 		{
 			cursor=cursor.left;
-			if((cursor.type==starting.type)&&(i>0)) //If it isn't different, then it isn't necessarily legal.
+			if(cursor.type==starting.type) //
 			{
-				
-			}else if((cursor.type=="-")&&(i>0))
+				if(i>0)
+				{
+					return true; //All moves up to this point have been legal, and this is only reachable by the endpoint of a legal move.
+				}
+				break; //Not a legal move in this direction. Break, go to next check statement.
+			}else if((cursor.type=="-"))
 			{
 				break; //left isn't legal, but not necessarily illegal.
-			}else if((cursor.type!=starting.type)) //If we find a different color first
+			}else if((cursor.type!=starting.type)) //If it isn't different, then it isn't necessarily legal.
 			{
-				
+				i++; //If and only if the type is opposite
 			}
 		}
 		//Right
+		for(int i = 0; i < 8;)
+		{
+			cursor=cursor.right;
+			if(cursor.type==starting.type) //
+			{
+				if(i>0)
+				{
+					return true; //All moves up to this point have been legal, and this is only reachable by the endpoint of a legal move.
+				}
+				break; //Not a legal move in this direction. Break, go to next check statement.
+			}else if((cursor.type=="-"))
+			{
+				break; //left isn't legal, but not necessarily illegal.
+			}else if((cursor.type!=starting.type)) //If it isn't different, then it isn't necessarily legal.
+			{
+				i++; //If and only if the type is opposite
+			}
+		}
 		//Up
+		for(int i = 0; i < 8;)
+		{
+			cursor=cursor.up;
+			if(cursor.type==starting.type) //
+			{
+				if(i>0)
+				{
+					return true; //All moves up to this point have been legal, and this is only reachable by the endpoint of a legal move.
+				}
+				break; //Not a legal move in this direction. Break, go to next check statement.
+			}else if((cursor.type=="-"))
+			{
+				break; //left isn't legal, but not necessarily illegal.
+			}else if((cursor.type!=starting.type)) //If it isn't different, then it isn't necessarily legal.
+			{
+				i++; //If and only if the type is opposite
+			}
+		}
 		//Down
+		for(int i = 0; i < 8;)
+		{
+			cursor=cursor.down;
+			if(cursor.type==starting.type) //
+			{
+				if(i>0)
+				{
+					return true; //All moves up to this point have been legal, and this is only reachable by the endpoint of a legal move.
+				}
+				break; //Not a legal move in this direction. Break, go to next check statement.
+			}else if((cursor.type=="-"))
+			{
+				break; //left isn't legal, but not necessarily illegal.
+			}else if((cursor.type!=starting.type)) //If it isn't different, then it isn't necessarily legal.
+			{
+				i++; //If and only if the type is opposite
+			}
+		}
 		//Up-Right
+		for(int i = 0; i < 8;)
+		{
+			cursor=cursor.up_right;
+			if(cursor.type==starting.type) //
+			{
+				if(i>0)
+				{
+					return true; //All moves up to this point have been legal, and this is only reachable by the endpoint of a legal move.
+				}
+				break; //Not a legal move in this direction. Break, go to next check statement.
+			}else if((cursor.type=="-"))
+			{
+				break; //left isn't legal, but not necessarily illegal.
+			}else if((cursor.type!=starting.type)) //If it isn't different, then it isn't necessarily legal.
+			{
+				i++; //If and only if the type is opposite
+			}
+		}
 		//Down-Right
+		for(int i = 0; i < 8;)
+		{
+			cursor=cursor.down_right;
+			if(cursor.type==starting.type) //
+			{
+				if(i>0)
+				{
+					return true; //All moves up to this point have been legal, and this is only reachable by the endpoint of a legal move.
+				}
+				break; //Not a legal move in this direction. Break, go to next check statement.
+			}else if((cursor.type=="-"))
+			{
+				break; //left isn't legal, but not necessarily illegal.
+			}else if((cursor.type!=starting.type)) //If it isn't different, then it isn't necessarily legal.
+			{
+				i++; //If and only if the type is opposite
+			}
+		}
 		//Down-Left
+		for(int i = 0; i < 8;)
+		{
+			cursor=cursor.down_left;
+			if(cursor.type==starting.type) //
+			{
+				if(i>0)
+				{
+					return true; //All moves up to this point have been legal, and this is only reachable by the endpoint of a legal move.
+				}
+				break; //Not a legal move in this direction. Break, go to next check statement.
+			}else if((cursor.type=="-"))
+			{
+				break; //left isn't legal, but not necessarily illegal.
+			}else if((cursor.type!=starting.type)) //If it isn't different, then it isn't necessarily legal.
+			{
+				i++; //If and only if the type is opposite
+			}
+		}
 		//Up-Left
+		for(int i = 0; i < 8;)
+		{
+			cursor=cursor.up_left;
+			if(cursor.type==starting.type) //
+			{
+				if(i>0)
+				{
+					return true; //All moves up to this point have been legal, and this is only reachable by the endpoint of a legal move.
+				}
+				break; //Not a legal move in this direction. Break, go to next check statement.
+			}else if((cursor.type=="-"))
+			{
+				break; //left isn't legal, but not necessarily illegal.
+			}else if((cursor.type!=starting.type)) //If it isn't different, then it isn't necessarily legal.
+			{
+				i++; //If and only if the type is opposite
+			}
+		}
 		return false;
 	}
 	
